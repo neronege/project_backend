@@ -1,3 +1,4 @@
+using Angular_test.DomainServices;
 using Angular_test.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +44,8 @@ namespace Angular_test
             });
             services.AddDbContext<AppDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<ICategoryCRUD, CategoryCRUD>();
             
         }
 
